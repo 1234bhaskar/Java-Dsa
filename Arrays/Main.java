@@ -5,7 +5,9 @@ public class Main {
         //Syntax
         //datatype[] var_name =new datatype[size]
         //store 5 roll nos.
-        int[] rnos =new int[5];
+       int[] rnos =new int[5];
+       // int rnos [] =new int[5]; we can also do this
+
         //or directly
         int[] rnos2={21,23,1,2,4};
 
