@@ -8,6 +8,16 @@ public class MainDoublyLL {
         list.insertFirst(5);
         list.insertFirst(30);
 
+       // list.display();
+
+
+        //insert last
+        list.insertLast(199);
+        //list.display();
+
+        //insert at a perticular index
+
+        list.insert(4,100);
         list.display();
     }
 }
