@@ -97,7 +97,7 @@ public class LL {
     }
     public Node find(int val){
         Node node= head;
-        while(node==null){
+        while(node!=null){
             if(node.value==val){
                 return node;
             }
