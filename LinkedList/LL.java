@@ -114,6 +114,24 @@ public class LL {
         System.out.println("End");
     }
 
+    //Questions
+    //1. Remove duplicates L.C 83
+    public void duplicates(){
+        Node node= head;
+        while(node.next!=null){
+            if(node.value==node.next.value){
+                node.next=node.next.next;
+                size--;
+            }else {
+                node=node.next;
+            }
+        }
+        tail=node;
+        tail.next=null;
+    }
+
+
+
     private class Node{
         private int value;
         private Node next;
@@ -127,5 +145,6 @@ public class LL {
             this.value=value;
             this.next=next;
         }
+
     }
 }
