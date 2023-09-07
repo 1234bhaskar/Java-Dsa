@@ -130,7 +130,7 @@ public class LL {
         tail.next=null;
     }
 
-    //2.Merge 2 sorted arrays
+    //2.Merge 2 sorted Lists
     public static LL merge(LL first,LL second){
         Node f=first.head;
         Node s=second.head;
@@ -153,6 +153,31 @@ public class LL {
         while(s!=null){
             ans.insertLast(s.value);
             s=s.next;
+        }
+        return ans;
+    }
+
+    //Q.Happy Number leetcode google
+    public boolean HappyNumber(int a){
+        int slow =a;
+        int fast=a;
+        do{
+          slow=findSquare(slow);
+          fast=findSquare(findSquare(fast));
+        }while(slow!=fast);
+        if (slow==1){
+        return true;
+        }
+        return false;
+
+    }
+
+    private int findSquare(int number){
+        int ans=0;
+        while(number>0){
+            int rem = number%10;
+            ans=ans+(rem*rem);
+            number/=10;
         }
         return ans;
     }
