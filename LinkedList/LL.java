@@ -182,7 +182,35 @@ public class LL {
         return ans;
     }
 
+    //Q.Recursive Reverse a LinkedList
+    public void Rreverse(Node node){
+        if(node==tail){
+            head=tail;
+            return;
+        }
 
+        Rreverse(node.next);
+        tail.next=node;
+        tail=node;
+        tail.next=null;
+    }
+
+    //Q.In Place reversal of LinkedList
+    public void reversal(Node node){
+        Node prev=null;
+        Node pres=head;
+        Node next=pres.next;
+
+        while(pres!=null){
+            pres.next=prev;
+            prev=pres;
+            pres=next;
+            if(next!=null){
+            next=next.next;
+            }
+        }
+        head=prev;
+    }
 
     private class Node{
         private int value;
