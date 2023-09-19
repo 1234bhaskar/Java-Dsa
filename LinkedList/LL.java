@@ -196,7 +196,7 @@ public class LL {
     }
 
     //Q.In Place reversal of LinkedList
-    public void reversal(Node node){
+    public Node reversal(Node node){
         Node prev=null;
         Node pres=head;
         Node next=pres.next;
@@ -210,8 +210,39 @@ public class LL {
             }
         }
         head=prev;
+        return head;
     }
+    //middle of the ll
+    public Node middleOFLL(Node head){
+        Node s=head;
+        Node f=head;
 
+        while(f!=null && f.next!=null){
+            s=s.next;
+            f=f.next.next;
+        }
+        return s;
+    }
+    //Q.Palindrom LL
+     public boolean Palindrom(Node head){
+        Node mid=middleOFLL(head);
+        Node headSecond=reversal(mid);
+        Node reReverseHead=headSecond;
+
+        //compare both halves
+         while(head !=null && headSecond!=null){
+             if(head.value != headSecond.value){
+                 break;
+             }
+             head=head.next;
+             headSecond=headSecond.next;
+         }
+         reversal(reReverseHead);
+         if(head==null ||headSecond==null){
+             return true;
+         }
+         return false;
+     }
     private class Node{
         private int value;
         private Node next;
