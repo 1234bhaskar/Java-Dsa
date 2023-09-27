@@ -60,6 +60,23 @@ public class QuestionsStack {
           return res;
     }
 
+    //Next greater Element
+    public static int[] NextG(int []arr){
+        Stack<Integer> st=new Stack<>();
+        int n=arr.length;
+        int []res=new int[n];
+        for (int i=n-1;i>=0;i--){
+            while(st.size()>0 && st.peek()<arr[i]  ){
+                st.pop();
+            }
+            if (st.isEmpty()) {
+                res[i] = -1;
+            }
+            else res[i]= st.push(arr[i]);
+        }
+        return res;
+    }
+
     public static void main(String[] args) {
       //  Scanner sc=new Scanner(System.in);
 /*
@@ -69,13 +86,19 @@ public class QuestionsStack {
         //System.out.println(isBalanced(str));
 
         //Remove consecutive subsequence
-        int [] arr={1,2,2,3,4,4,4,4,5,5,5,2,2,1};
+       /* int [] arr={1,2,2,3,4,4,4,4,5,5,5,2,2,1};
         int res[]=remove(arr);
         for (int i=0;i<res.length;i++){
             System.out.print(res[i]+" ");
-        }
+        }*/
+
+        //Next greater Element
+        int [] arr={1,3,2,1,8,6,3,4};
+        System.out.println(NextG(arr));
 
     }
+
+
 
 
 }
