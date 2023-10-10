@@ -77,6 +77,39 @@ public class QuestionsStack {
         return res;
     }
 
+
+    //Function to find if there is a celebrity in the party or not.
+    int celebrity(int M[][], int n)
+    {
+        // code here
+        Stack<Integer> s=new Stack();
+        for(int i=0;i<n;i++){
+            s.push(i);
+        }
+        while(s.size()>1){
+            int v1=s.pop(); //2
+            int v2=s.pop(); //1
+
+            if(M[v1][v2]==0){
+                s.push(v1);
+            }else if(M[v2][v1]==0){
+                s.push(v2);
+            }
+        }
+        if(s.size()==0)return -1;
+
+        int potential=s.pop();
+
+        for(int j=0;j<n;j++){
+            if(M[potential][j] == 1) return -1;
+        }
+        for(int i=0;i<n;i++){
+            if(i==potential) continue;
+            if(M[i][potential] == 0) return -1;
+        }
+
+        return potential;
+    }
     public static void main(String[] args) {
       //  Scanner sc=new Scanner(System.in);
 /*
