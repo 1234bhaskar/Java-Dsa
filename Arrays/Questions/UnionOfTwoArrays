@@ -1,0 +1,26 @@
+class Solution{
+    public static int doUnion(int a[], int n, int b[], int m) 
+    {
+        //Your code here
+        int i=0,j=0,x=0;
+        int len= n+m;
+        int []k=new int [len];
+        while(i<n && j<m){
+            if(a[i]<b[j]){
+                k[x++]=a[i++];
+            }else if(a[i]>b[j]){
+                k[x++]=b[j++];
+            }else{
+                k[x++]=b[j++];
+                i++;
+            }
+        }
+        while(i<n){
+           k[x++]=a[i++];
+        }
+        while(j<m){
+            k[x++]=b[j++];
+        }
+        return x;
+    }
+}

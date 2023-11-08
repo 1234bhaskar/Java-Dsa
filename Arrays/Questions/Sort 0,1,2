@@ -1,0 +1,29 @@
+class Solution
+{
+    public static void sort012(int a[], int n)
+    {
+        // code here 
+        int l=0;
+        int h=n-1;
+        int mid=0;
+        int temp;
+        
+        while(mid<=h){
+            if(a[mid]==0){
+            temp=a[l];
+            a[l]=a[mid];
+            a[mid]=temp;
+            mid++;
+            l++;
+            }else if(a[mid]==1){
+            mid++;
+            }
+            else{
+            temp=a[mid];
+            a[mid]=a[h];
+            a[h]=temp;
+            h--;
+            }
+        }
+    }
+}
