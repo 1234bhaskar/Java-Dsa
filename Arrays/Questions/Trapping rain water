@@ -1,0 +1,36 @@
+//Trapping Rain water problem
+Input:
+N = 6
+arr[] = {3,0,0,2,0,4}
+Output:
+10
+Explanation: 
+https://media.geeksforgeeks.org/img-practice/PROD/addEditProblem/701211/Web/Other/186b43ba-eeec-4d9e-b0f8-dea91ef026e0_1685086818.png
+
+class Solution{
+    
+    // arr: input array
+    // n: size of array
+    // Function to find the trapped water between the blocks.
+    static long trappingWater(int arr[], int n) { 
+        // Your code here
+        int left []=new int[n];
+        int right []=new int[n]; 
+        left[0]=arr[0];
+        for(int i=1;i<n;i++){
+            left[i]=Math.max(left[i-1],arr[i]);
+        }
+        right[n-1]=arr[n-1];
+        for(int i=n-2;i>=0;i--){
+            right[i]=Math.max(right[i+1],arr[i]);
+        }
+        long ans=0;
+        for(int i=0;i<n;i++){
+            arr[i]=Math.min(left[i],right[i])-arr[i];
+            ans=ans+arr[i];
+        }
+        
+        return ans;
+        
+    } 
+}
