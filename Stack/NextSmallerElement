@@ -1,0 +1,23 @@
+Next Smaller Element InterviewBit (https://www.interviewbit.com/problems/nearest-smaller-element/)
+
+public class Solution {
+    public int[] prevSmaller(int[] A) {
+        Stack <Integer> stack=new Stack<>();
+        int n=A.length;
+        int G[]=new int[n];
+        for(int i=0;i<=n-1;i++){
+            while( !stack.isEmpty() && A[i]<=stack.peek()){
+                stack.pop();
+            }
+            
+                if(stack.size()!=0){
+                    G[i]=stack.peek();
+                }else{
+                    G[i]=-1;
+                }
+            
+            stack.push(A[i]);
+        }
+        return G;
+    }
+}
